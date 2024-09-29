@@ -1,7 +1,19 @@
 # addr2me
 
-Repo: https://github.com/k0st1an/addr2me
+[![Build and Push](https://github.com/k0st1an/addr2me/actions/workflows/image.yaml/badge.svg)](https://github.com/k0st1an/addr2me/actions/workflows/image.yaml)
 
+- Web:
+    - http://addr2.me
+    - https://addr2.me
+- DockerHub: https://hub.docker.com/r/k0st1an/addr2me
+- GitHub: https://github.com/k0st1an/addr2me
+
+## Example
+
+```sh
+curl addr2.me
+79.143.107.6
+```
 
 ## Usage
 ### Docker
@@ -13,19 +25,13 @@ docker pull k0st1an/addr2me
 docker run --name addr2me --rm -p 7007:7007/tcp k0st1an/addr2me
 ```
 
-Or
-
-```sh
-make docker-run
-```
-
 ### CLI
 
 ```sh
-$ git clone https://github.com/k0st1an/addr2me.git
+git clone https://github.com/k0st1an/addr2me.git && cd addr2me
 ```
 ```sh
-$ make build
+make build
 ```
 ```sh
 ./addr2me -h
