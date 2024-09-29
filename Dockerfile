@@ -1,4 +1,8 @@
 FROM golang:1.23-alpine AS builder
+
+LABEL maintainer="Konstantin Kruglov <kruglovk@gmail.com>"
+LABEL repository="github.com/k0st1an/addr2me"
+
 WORKDIR /app
 COPY . .
 RUN apk --no-cache add make
