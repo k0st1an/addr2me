@@ -1,4 +1,8 @@
-# addr2.me
+# addr2me
+
+Repo: https://github.com/k0st1an/addr2me
+
+
 ## Usage
 
 ```sh
