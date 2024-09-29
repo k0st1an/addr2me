@@ -7,6 +7,8 @@ RUN make build
 FROM alpine:3.20
 RUN apk --no-cache add bash
 COPY --from=builder /app/addr2me /usr/local/sbin/addr2me
+COPY --from=builder /app/LICENSE /
+COPY --from=builder /app/README.md /
 USER nobody
 EXPOSE 7007
 ENTRYPOINT ["addr2me"]
