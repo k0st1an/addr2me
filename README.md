@@ -2,16 +2,14 @@
 
 [![Build and Push](https://github.com/k0st1an/addr2me/actions/workflows/image.yaml/badge.svg)](https://github.com/k0st1an/addr2me/actions/workflows/image.yaml)
 
-- Web:
-    - http://addr2.me
-    - https://addr2.me
+- Web: https://addr2.me
 - DockerHub: https://hub.docker.com/r/k0st1an/addr2me
 - GitHub: https://github.com/k0st1an/addr2me
 
 ## Example
 
 ```sh
-curl addr2.me
+curl -sL addr2.me
 79.143.107.6
 ```
 
