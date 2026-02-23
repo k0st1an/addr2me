@@ -1,3 +1,3 @@
-module github.com/k0st1an/addr2me
+module addr2me
 
-go 1.22.3
+go 1.25.0
