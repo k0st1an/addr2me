@@ -1,0 +1,23 @@
+server {
+    listen 80;
+    listen [::]:80;
+    # listen 443 ssl;
+    # listen [::]:443 ssl;
+    server_name yourhost;
+
+    # SSL certificate paths — replace with your actual paths
+    # For Let's Encrypt (certbot):
+    # ssl_certificate     /etc/letsencrypt/live/yourhost/fullchain.pem;
+    # ssl_certificate_key /etc/letsencrypt/live/yourhost/privkey.pem;
+    # ssl_protocols       TLSv1.2 TLSv1.3;
+    # ssl_ciphers         HIGH:!aNULL:!MD5;
+
+    location / {
+        proxy_pass http://127.0.0.1:7007;
+
+        proxy_set_header Host              $host;
+        proxy_set_header X-Real-IP         $remote_addr;
+        proxy_set_header X-Forwarded-For   $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+}

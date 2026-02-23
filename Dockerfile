@@ -1,18 +1,13 @@
-FROM golang:1.23-alpine AS builder
-
-LABEL maintainer="Konstantin Kruglov <kruglovk@gmail.com>"
-LABEL repository="github.com/k0st1an/addr2me"
-
+FROM golang:1.25-alpine AS builder
+RUN apk add --no-cache ca-certificates
 WORKDIR /app
+COPY go.mod ./
+RUN go mod download
 COPY . .
-RUN apk --no-cache add make
-RUN make build
+RUN CGO_ENABLED=0 go build -ldflags="-s -w" -o addr2me .
 
-FROM alpine:3.20
-RUN apk --no-cache add bash
-COPY --from=builder /app/addr2me /usr/local/sbin/addr2me
-COPY --from=builder /app/LICENSE /
-COPY --from=builder /app/README.md /
-USER nobody
+FROM scratch
+COPY --from=builder /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/ca-certificates.crt
+COPY --from=builder /app/addr2me /addr2me
 EXPOSE 7007
-ENTRYPOINT ["addr2me"]
+ENTRYPOINT ["/addr2me"]
