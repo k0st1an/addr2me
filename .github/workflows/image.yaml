@@ -2,6 +2,11 @@ name: CI
 
 on:
   push:
+    paths:
+      - '**.go'
+      - 'go.mod'
+      - 'Dockerfile'
+      - 'templates/**'
   workflow_dispatch:
 
 concurrency:
@@ -41,4 +46,4 @@ jobs:
         context: .
         platforms: linux/amd64,linux/arm64
         push: ${{ github.ref == 'refs/heads/main' }}
-        tags: ${{ secrets.DH_USERNAME }}/addr2me:latest
+        tags: k0st1an/addr2me:latest

@@ -45,6 +45,16 @@ The server listens on port `:7007` by default.
 
 ## Docker
 
+Image is published to [Docker Hub](https://hub.docker.com/r/k0st1an/addr2me):
+
+```bash
+docker pull k0st1an/addr2me
+docker run --rm -p 7007:7007 k0st1an/addr2me
+docker run --rm -p 7007:7007 -e IPINFO_TOKEN=your_token k0st1an/addr2me
+```
+
+Or build locally:
+
 ```bash
 make docker-build
 
